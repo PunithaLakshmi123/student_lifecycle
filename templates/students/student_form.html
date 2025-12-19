@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{% if form.instance.pk %}Edit Student{% else %}New Student{% endif %}</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="btn btn-primary" type="submit">Save</button>
+  <a class="btn btn-link" href="/students/">Cancel</a>
+</form>
+{% endblock %}

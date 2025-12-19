@@ -1,0 +1,45 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    <title>Student Lifecycle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Student Lifecycle</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item"><a class="nav-link" href="/students/">Students</a></li>
+            <li class="nav-item"><a class="nav-link" href="/courses/">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="/enrollments/">Enrollments</a></li>
+            <li class="nav-item"><a class="nav-link" href="/admin/">Admin</a></li>
+            <li class="nav-item"><a class="nav-link" href="/api/">API</a></li>
+          </ul>
+          <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+            <li class="nav-item"><span class="nav-link">{{ user.username }}</span></li>
+            <li class="nav-item"><a class="nav-link" href="/admin/logout/">Logout</a></li>
+            {% else %}
+            <li class="nav-item"><a class="nav-link" href="/admin/login/">Login</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

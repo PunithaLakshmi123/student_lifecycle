@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center mt-5">
+  <h1 class="display-4">Welcome to Student Lifecycle</h1>
+  <p class="lead">A minimal student lifecycle management demo built with Django and Django REST Framework.</p>
+  <div class="home-cta">
+    <a class="btn btn-primary me-2" href="/students/">View Students</a>
+    <a class="btn btn-outline-primary me-2" href="/api/">API</a>
+    <a class="btn btn-outline-secondary" href="/admin/">Admin</a>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-4 offset-md-4">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Students
+          <span class="badge bg-primary rounded-pill">{{ student_count }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Courses
+          <span class="badge bg-secondary rounded-pill">{{ course_count }}</span>
+        </li>
+      </ul>
+      <p class="footer-note mt-3">You can browse students and courses. Login to the admin to manage data.</p>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

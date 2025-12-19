@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ student.first_name }} {{ student.last_name }} ({{ student.roll_no }})</h2>
+<ul class="list-unstyled">
+  <li><strong>DOB:</strong> {{ student.dob }}</li>
+  <li><strong>Gender:</strong> {{ student.get_gender_display }}</li>
+  <li><strong>Class:</strong> {{ student.current_class }}</li>
+  <li><strong>Email:</strong> {{ student.email }}</li>
+  <li><strong>Phone:</strong> {{ student.phone }}</li>
+  <li><strong>Address:</strong> {{ student.address }}</li>
+</ul>
+{% if user.is_authenticated and (user.is_staff or user.groups|length > 0) %}
+<a href="/students/{{ student.id }}/edit/" class="btn btn-primary">Edit</a>
+{% endif %}
+<a href="/students/" class="btn btn-link">Back</a>
+{% endblock %}

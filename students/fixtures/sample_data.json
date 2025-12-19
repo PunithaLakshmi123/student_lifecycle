@@ -1,0 +1,85 @@
+[
+  {
+    "model": "students.student",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "dob": "2008-05-21",
+      "gender": "M",
+      "admission_date": "2022-06-01",
+      "roll_no": "R001",
+      "email": "john.doe@example.com",
+      "phone": "1234567890",
+      "address": "123 Main St",
+      "current_class": "Grade 3",
+      "is_active": true
+    }
+  },
+  {
+    "model": "students.course",
+    "pk": 1,
+    "fields": {
+      "code": "MATH101",
+      "name": "Mathematics",
+      "description": "Basic mathematics course"
+    }
+  },
+  {
+    "model": "students.semester",
+    "pk": 1,
+    "fields": {
+      "name": "2025_S1",
+      "start_date": "2025-01-01",
+      "end_date": "2025-06-30",
+      "is_active": true
+    }
+  },
+  {
+    "model": "students.enrollment",
+    "pk": 1,
+    "fields": {
+      "student": 1,
+      "course": 1,
+      "semester": "2025_S1",
+      "enrolled_on": "2025-01-10"
+    }
+  },
+  {
+    "model": "students.grade",
+    "pk": 1,
+    "fields": {
+      "enrollment": 1,
+      "assessment_type": "EX",
+      "score": "45.00",
+      "max_score": "50.00",
+      "percentage": "90.00",
+      "letter_grade": "A",
+      "remarks": "Good",
+      "recorded_on": "2025-06-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "students.attendancerecord",
+    "pk": 1,
+    "fields": {
+      "student": 1,
+      "course": 1,
+      "date": "2025-12-01",
+      "status": "P",
+      "remarks": "Present"
+    }
+  },
+  {
+    "model": "students.promotion",
+    "pk": 1,
+    "fields": {
+      "student": 1,
+      "from_class": "Grade 2",
+      "to_class": "Grade 3",
+      "promoted_on": "2025-06-30",
+      "effective_semester": 1,
+      "notes": "Promoted to next grade"
+    }
+  }
+]
